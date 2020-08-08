@@ -34,10 +34,6 @@ public class Test_BuyProduct
 		
 		buyProduct1.placeOrder();
 		
-		msg=buyProduct1.driver.findElement(By.xpath("//strong[contains(text(),'Your order on My Store is complete.')]")).getText();
-		
-		Assert.assertEquals(msg, "Your order on My Store is complete.");
-	
 		buyProduct1.verifyOrderDetails();
 		
 	}
@@ -54,10 +50,6 @@ public class Test_BuyProduct
 		buyProduct1.paymentMethod_Cheque();
 		
 		buyProduct1.placeOrder();
-		
-		msg=buyProduct1.driver.findElement(By.xpath("//strong[contains(text(),'Your order on My Store is complete.')]")).getText();
-		
-		Assert.assertEquals(msg, "Your order on My Store is complete.");
 		
 		buyProduct1.verifyOrderDetails();
 		
