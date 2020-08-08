@@ -8,6 +8,13 @@ import org.openqa.selenium.support.ui.Select;
 import com.yourlogo._base.Setup;
 import com.yourlogo.testdata.TestData;
 
+/**
+ * @author sugat
+ * This page is flow for creating an account on website.
+ * If email id to be registered already exists then error will be displayed.
+ * Only unregistered email id can be used to create new account.
+ */
+
 public class Registration extends Setup 
 {	
 	TestData reg;
@@ -138,7 +145,7 @@ public class Registration extends Setup
 	public static void main(String[] args) {
 		Registration obj=new Registration();
 		
-		obj.setUpRegistrationData(6);
+		obj.setUpRegistrationData(7);
 		
 		obj.checkEmailValidity();
 		

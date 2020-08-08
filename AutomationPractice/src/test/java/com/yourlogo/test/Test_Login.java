@@ -10,36 +10,37 @@ import com.yourlogo.buyproduct.BuyProduct;
 
 public class Test_Login 
 {
-	BuyProduct buy;
+	BuyProduct buyProductLogin;
 	String errMsg;
 	
 	@BeforeMethod
 	public void loginPreTest()
 	{
-		buy=new BuyProduct();
+		buyProductLogin=new BuyProduct();
 	}
 	
 	@Test(priority=1)
 	public void emailIdBlank()
 	{
-		buy.setupLoginData(1);
+		buyProductLogin.setupLoginData(1);
 		
-		buy.login();
+		buyProductLogin.login();
 		
-		errMsg=buy.driver.findElement(By.xpath("//li[contains(text(),'An email add')]")).getText();
+		errMsg=buyProductLogin.driver.findElement(By.xpath("//li[contains(text(),'An email add')]")).getText();
 		
 		Assert.assertEquals(errMsg, "An email address required.");
 		
 	}
 	
+	
 	@Test(priority=2)
 	public void passwordBlank()
 	{
-		buy.setupLoginData(2);
+		buyProductLogin.setupLoginData(2);
 		
-		buy.login();
+		buyProductLogin.login();
 		
-		errMsg=buy.driver.findElement(By.xpath("//li[contains(text(),'Password is required.')]")).getText();
+		errMsg=buyProductLogin.driver.findElement(By.xpath("//li[contains(text(),'Password is required.')]")).getText();
 		
 		Assert.assertEquals(errMsg, "Password is required.");
 		
@@ -48,11 +49,11 @@ public class Test_Login
 	@Test(priority=3)
 	public void invalidEmailId()
 	{
-		buy.setupLoginData(3);
+		buyProductLogin.setupLoginData(3);
 		
-		buy.login();
+		buyProductLogin.login();
 		
-		errMsg=buy.driver.findElement(By.xpath("//li[contains(text(),'Invalid email ad')]")).getText();
+		errMsg=buyProductLogin.driver.findElement(By.xpath("//li[contains(text(),'Invalid email ad')]")).getText();
 		
 		Assert.assertEquals(errMsg, "Invalid email address.");
 		
@@ -61,11 +62,11 @@ public class Test_Login
 	@Test(priority=4)
 	public void invalidPassword()
 	{	
-		buy.setupLoginData(4);
+		buyProductLogin.setupLoginData(4);
 		
-		buy.login();
+		buyProductLogin.login();
 		
-		errMsg=buy.driver.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]")).getText();
+		errMsg=buyProductLogin.driver.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]")).getText();
 		
 		Assert.assertEquals(errMsg, "Authentication failed.");
 	}
@@ -73,11 +74,11 @@ public class Test_Login
 	@Test(priority=5)
 	public void validLogin()
 	{
-		buy.setupLoginData(5);
+		buyProductLogin.setupLoginData(5);
 		
-		buy.login();
+		buyProductLogin.login();
 		
-		String url=buy.driver.getCurrentUrl();
+		String url=buyProductLogin.driver.getCurrentUrl();
 		
 		if(url.contains("http://automationpractice.com/index.php?controller=my-account"))
 			Assert.assertTrue(true);
@@ -90,7 +91,7 @@ public class Test_Login
 	@AfterMethod
 	public void loginPostTest()
 	{
-		buy.driver.close();
+		buyProductLogin.driver.close();
 	}
 	
 

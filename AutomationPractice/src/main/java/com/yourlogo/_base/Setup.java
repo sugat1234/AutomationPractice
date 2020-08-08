@@ -11,7 +11,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * @author sugat
- * Setup - this page is setups the baseurl and drivers under test
+ * Setup - this page is setups the webdriver, browser and weburl under test.
  */
 public class Setup 
 {
@@ -31,9 +31,9 @@ public class Setup
 		
 		driver.manage().window().maximize();
 		
-		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);	
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);	
 	}
 	
 	

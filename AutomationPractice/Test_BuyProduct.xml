@@ -3,7 +3,10 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.yourlogo.test.Test_Login">
+      <class name="com.yourlogo.test.Test_BuyProduct">
+         <methods>
+      <include name="placeOrderUsingBankWire"></include>
+      </methods>
       </class>
     </classes>
   </test> <!-- Test -->

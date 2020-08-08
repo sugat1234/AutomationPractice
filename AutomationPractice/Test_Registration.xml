@@ -5,7 +5,7 @@
     <classes>
       <class name="com.yourlogo.test.Test_Registration">
       <methods>
-      <include name="invalidMobilePhone"></include>
+      <include name="passwordLessThanFiveChars"></include>
       </methods>
       </class>
     </classes>
