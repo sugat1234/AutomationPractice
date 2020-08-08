@@ -28,7 +28,7 @@ public class Test_BuyProduct
 		
 		buyProduct1.login();
 		
-		buyProduct1.buyWomensProduct();
+	//	buyProduct1.selectProduct();
 		
 		buyProduct1.paymentMethod_BankWire();
 		
@@ -45,7 +45,7 @@ public class Test_BuyProduct
 		
 		buyProduct1.login();
 		
-		buyProduct1.buyWomensProduct();
+	//	buyProduct1.selectProduct();
 				
 		buyProduct1.paymentMethod_Cheque();
 		

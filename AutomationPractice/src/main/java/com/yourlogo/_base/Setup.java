@@ -31,9 +31,9 @@ public class Setup
 		
 		driver.manage().window().maximize();
 		
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(80, TimeUnit.SECONDS);
 		
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);	
+		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);	
 	}
 	
 	
