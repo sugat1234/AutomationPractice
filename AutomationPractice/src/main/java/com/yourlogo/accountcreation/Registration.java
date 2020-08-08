@@ -32,12 +32,19 @@ public class Registration extends Setup
 	
 	public void checkEmailValidity()
 	{
+		System.out.println("Test Name : "+testData.get("scenarioName"));
+		
 		driver.findElement(By.xpath("//a[@class='login']")).click();
 		
 		driver.findElement(By.xpath("//input[@id='email_create']")).sendKeys(testData.get("emailAddress"));
 		
 		driver.findElement(By.xpath("//form[@id='create-account_form']//span[1]")).click();
 	
+	}
+	
+	public String getTestName()
+	{
+		return testData.get("scenarioName");
 	}
 	
 	public void enterPersonalInformation()

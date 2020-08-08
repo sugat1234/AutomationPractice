@@ -40,9 +40,10 @@ public class BuyProduct extends Setup
 		loginTestData=buyProd.getLoginData(colNum);
 	}
 	
-	
 	public void login()
 	{
+		System.out.println("Test Name : "+loginTestData.get("scenarioName"));
+		
 		driver.findElement(By.xpath("//a[@class='login']")).click();
 		
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(loginTestData.get("loginEmailId"));
@@ -53,6 +54,10 @@ public class BuyProduct extends Setup
 		
 	}
 	
+	public String getTestName()
+	{
+		return loginTestData.get("scenarioName");
+	}
 	
     WebElement sleeveTshirt, blouse, printedChiffonDress;
     List<WebElement> printedDresses, printedSummerDresses;

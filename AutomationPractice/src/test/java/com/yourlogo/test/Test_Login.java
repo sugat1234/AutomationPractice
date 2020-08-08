@@ -6,84 +6,94 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.yourlogo.buyproduct.BuyProduct;
+import com.yourlogo.login.Login;
+
+
 
 public class Test_Login 
 {
-	BuyProduct buyProductLogin;
+	Login login;
 	String errMsg;
 	
 	@BeforeMethod
 	public void loginPreTest()
 	{
-		buyProductLogin=new BuyProduct();
+		login=new Login();
 	}
 	
 	@Test(priority=1)
 	public void emailIdBlank()
 	{
-		buyProductLogin.setupLoginData(1);
+		login.setupLoginData(1);
 		
-		buyProductLogin.login();
+		login.applicationlogin();
 		
-		errMsg=buyProductLogin.driver.findElement(By.xpath("//li[contains(text(),'An email add')]")).getText();
+		errMsg=login.driver.findElement(By.xpath("//li[contains(text(),'An email add')]")).getText();
 		
 		Assert.assertEquals(errMsg, "An email address required.");
 		
+		login.takeScreenshot("Login", login.getTestName());
 	}
 	
 	
 	@Test(priority=2)
 	public void passwordBlank()
 	{
-		buyProductLogin.setupLoginData(2);
+		login.setupLoginData(2);
 		
-		buyProductLogin.login();
+		login.applicationlogin();
 		
-		errMsg=buyProductLogin.driver.findElement(By.xpath("//li[contains(text(),'Password is required.')]")).getText();
+		errMsg=login.driver.findElement(By.xpath("//li[contains(text(),'Password is required.')]")).getText();
 		
 		Assert.assertEquals(errMsg, "Password is required.");
 		
+		login.takeScreenshot("Login", login.getTestName());
 	}
 	
 	@Test(priority=3)
 	public void invalidEmailId()
 	{
-		buyProductLogin.setupLoginData(3);
+		login.setupLoginData(3);
 		
-		buyProductLogin.login();
+		login.applicationlogin();
 		
-		errMsg=buyProductLogin.driver.findElement(By.xpath("//li[contains(text(),'Invalid email ad')]")).getText();
+		errMsg=login.driver.findElement(By.xpath("//li[contains(text(),'Invalid email ad')]")).getText();
 		
 		Assert.assertEquals(errMsg, "Invalid email address.");
+		
+		login.takeScreenshot("Login", login.getTestName());
 		
 	}
 	
 	@Test(priority=4)
 	public void invalidPassword()
 	{	
-		buyProductLogin.setupLoginData(4);
+		login.setupLoginData(4);
 		
-		buyProductLogin.login();
+		login.applicationlogin();
 		
-		errMsg=buyProductLogin.driver.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]")).getText();
+		errMsg=login.driver.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]")).getText();
 		
 		Assert.assertEquals(errMsg, "Authentication failed.");
+		
+		login.takeScreenshot("Login", login.getTestName());
 	}
 	
 	@Test(priority=5)
 	public void validLogin()
 	{
-		buyProductLogin.setupLoginData(5);
+		login.setupLoginData(5);
 		
-		buyProductLogin.login();
+		login.applicationlogin();
 		
-		String url=buyProductLogin.driver.getCurrentUrl();
+		String url=login.driver.getCurrentUrl();
 		
 		if(url.contains("http://automationpractice.com/index.php?controller=my-account"))
 			Assert.assertTrue(true);
 		else 
 			Assert.assertTrue(false);
+		
+		login.takeScreenshot("Login", login.getTestName());
 		
 		
 	}
@@ -91,7 +101,7 @@ public class Test_Login
 	@AfterMethod
 	public void loginPostTest()
 	{
-		buyProductLogin.driver.close();
+		login.driver.close();
 	}
 	
 

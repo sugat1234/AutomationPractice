@@ -4,6 +4,12 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="com.yourlogo.test.Test_Login">
+       
+    <!-- <methods>
+      		<include name="emailIdBlank"></include>
+      	</methods>
+     -->
+      	 
       </class>
     </classes>
   </test> <!-- Test -->
