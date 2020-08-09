@@ -4,37 +4,47 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.yourlogo.modules.Login;
+import com.yourlogo.utilities.Utility;
 
-
-
-
-
+@SuppressWarnings("static-access")
 public class Test_Login 
 {
 	Login login;
 	String errMsg;
-	
-	@BeforeMethod
-	public void loginPreTest()
+		
+/*	String browserName;
+	@BeforeTest
+	public void setupBrowserName()
 	{
-		login=new Login();
+		browserName="firefox";
+	}
+*/
+	@Parameters({"browser"})
+	@BeforeMethod
+	public void loginPreTest(@Optional("firefox")String browserName)
+	{
+		login=new Login(browserName);
 	}
 	
 	@Test(priority=1)
 	public void emailIdBlank()
 	{
 		login.setupLoginData(1);
+	
+		login.startApplication();
 		
-		login.applicationlogin();
+		login.enterLoginDetailsAndSubmit();
 		
 		errMsg=login.driver.findElement(By.xpath("//li[contains(text(),'An email add')]")).getText();
 		
 		Assert.assertEquals(errMsg, "An email address required.");
 		
-		login.takeScreenshot("Login", login.getTestName());
 	}
 	
 	
@@ -43,13 +53,14 @@ public class Test_Login
 	{
 		login.setupLoginData(2);
 		
-		login.applicationlogin();
+		login.startApplication();
+		
+		login.enterLoginDetailsAndSubmit();
 		
 		errMsg=login.driver.findElement(By.xpath("//li[contains(text(),'Password is required.')]")).getText();
 		
 		Assert.assertEquals(errMsg, "Password is required.");
 		
-		login.takeScreenshot("Login", login.getTestName());
 	}
 	
 	@Test(priority=3)
@@ -57,13 +68,13 @@ public class Test_Login
 	{
 		login.setupLoginData(3);
 		
-		login.applicationlogin();
+		login.startApplication();
+		
+		login.enterLoginDetailsAndSubmit();
 		
 		errMsg=login.driver.findElement(By.xpath("//li[contains(text(),'Invalid email ad')]")).getText();
 		
 		Assert.assertEquals(errMsg, "Invalid email address.");
-		
-		login.takeScreenshot("Login", login.getTestName());
 		
 	}
 	
@@ -72,13 +83,14 @@ public class Test_Login
 	{	
 		login.setupLoginData(4);
 		
-		login.applicationlogin();
+		login.startApplication();
+		
+		login.enterLoginDetailsAndSubmit();
 		
 		errMsg=login.driver.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]")).getText();
 		
 		Assert.assertEquals(errMsg, "Authentication failed.");
 		
-		login.takeScreenshot("Login", login.getTestName());
 	}
 	
 	@Test(priority=5)
@@ -86,7 +98,9 @@ public class Test_Login
 	{
 		login.setupLoginData(5);
 		
-		login.applicationlogin();
+		login.startApplication();
+		
+		login.enterLoginDetailsAndSubmit();
 		
 		String url=login.driver.getCurrentUrl();
 		
@@ -94,15 +108,13 @@ public class Test_Login
 			Assert.assertTrue(true);
 		else 
 			Assert.assertTrue(false);
-		
-		login.takeScreenshot("Login", login.getTestName());
-		
-		
 	}
 	
 	@AfterMethod
 	public void loginPostTest()
 	{
+		Utility.takeScreenshot("Login", login.getTestName());
+		
 		login.driver.close();
 	}
 	

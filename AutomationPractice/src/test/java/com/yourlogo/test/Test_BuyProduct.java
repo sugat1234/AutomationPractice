@@ -2,65 +2,68 @@ package com.yourlogo.test;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import com.yourlogo.modules.BuyProduct;
 
-
-
-
-
 public class Test_BuyProduct 
 {
-	BuyProduct buyProduct1;
+	BuyProduct buy;
 	String msg;
 	
 	@BeforeMethod
 	public void buyProductPreTest()
 	{
-		buyProduct1=new BuyProduct();
+		buy=new BuyProduct();
 	}
 	
 	@Test(priority=1)
 	public void placeOrderUsingBankWire()
 	{
-		buyProduct1.setupLoginData(5);
+		buy.setupLoginData(6);
 		
-		buyProduct1.login();
+		buy.startApplication();
 		
-	//	buyProduct1.selectProduct();
+		buy.enterLoginDetailsAndSubmit();
 		
-		buyProduct1.paymentMethod_BankWire();
+		buy.selectProductAndQuantity(1);
 		
-		buyProduct1.placeOrder();
+		buy.checkTransactionDetails();
 		
-		buyProduct1.verifyOrderDetails();
+		buy.paymentMethod_BankWire();
+				
+		buy.placeOrder();
+		
+		buy.verifyOrderDetails();
 		
 	}
 	
 	@Test(priority=2)
 	public void placeOrderUsingCheque()
 	{
-		buyProduct1.setupLoginData(5);
+		buy.setupLoginData(6);
 		
-		buyProduct1.login();
+		buy.startApplication();
 		
-	//	buyProduct1.selectProduct();
+		buy.enterLoginDetailsAndSubmit();
+		
+		buy.selectProductAndQuantity(4);
+		
+		buy.checkTransactionDetails();
+		
+		buy.paymentMethod_Cheque();
 				
-		buyProduct1.paymentMethod_Cheque();
+		buy.placeOrder();
 		
-		buyProduct1.placeOrder();
-		
-		buyProduct1.verifyOrderDetails();
+		buy.verifyOrderDetails();
 		
 	}
 	
+	@SuppressWarnings("static-access")
 	@AfterMethod
 	public void buyProductPostTest()
 	{
-		buyProduct1.driver.close();
+		buy.driver.close();
 	}
 
 }

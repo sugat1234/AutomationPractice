@@ -55,7 +55,12 @@
 			<scope>compile</scope>
 		</dependency>
 		
-   
+		<!-- Full page Screenshot :https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot -->
+		<dependency>
+			<groupId>ru.yandex.qatools.ashot</groupId>
+			<artifactId>ashot</artifactId>
+			<version>1.5.4</version>
+		</dependency>   
    
    
    

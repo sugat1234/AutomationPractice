@@ -1,9 +1,8 @@
 package com.yourlogo.modules;
 
 import java.text.DecimalFormat;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
@@ -12,8 +11,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-import com.yourlogo.base.Setup;
-import com.yourlogo.testdata.TestData;
 
 /**
  * @author sugat
@@ -21,65 +18,54 @@ import com.yourlogo.testdata.TestData;
  * After the order is placed, the order is verified in order details in MyAccount
  */
 
-public class BuyProduct extends Setup
+public class BuyProduct extends Login
 {
-	TestData buyProd;
-	HashMap<String, String> productTestData;
 	DecimalFormat form;
 	Actions actions;
 	
 	public BuyProduct()
 	{
-		buyProd=new TestData();
 		form=new DecimalFormat("#00.00");
 		actions=new Actions(driver);
 	}
-	
-	public void setupLoginData(int colNum)
-	{
-		productTestData=buyProd.getLoginData(colNum);
-	}
-	
-	public void login()
-	{
-		System.out.println("Test Name : "+productTestData.get("scenarioName"));
-		
-		driver.findElement(By.xpath("//a[@class='login']")).click();
-		
-		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(productTestData.get("loginEmailId"));
-		
-		driver.findElement(By.xpath("//input[@id='passwd']")).sendKeys(productTestData.get("loginPassword"));
-		
-		driver.findElement(By.xpath("//p[@class='submit']//span[1]")).click();
-		
-	}
-	
-	public String getTestName()
-	{
-		return productTestData.get("scenarioName");
-	}
-	
-    WebElement sleeveTshirt, blouse, printedChiffonDress;
-    List<WebElement> printedDresses, printedSummerDresses;
-    public void products()
+		    
+    ArrayList<WebElement> productList;
+    public WebElement getProduct(int index)
     {
-    	sleeveTshirt=driver.findElement(By.xpath("//a[contains(text(),'Faded Short Sleeve T-shirts')]"));
+		productList=new ArrayList<WebElement>();
+    	
+    	try
+    	{
+	    	productList.add(driver.findElement(By.xpath("//a[contains(text(),'Faded Short Sleeve T-shirts')]")));
+			
+	    	productList.add(driver.findElement(By.xpath("//div[@class='right-block']//a[@class='product-name'][contains(text(),'Blouse')]")));
+			
+			productList.add(driver.findElements(By.partialLinkText("Printed Dre")).get(0));
+			
+			productList.add(driver.findElements(By.partialLinkText("Printed Dre")).get(1));
+			
+			productList.add(driver.findElements(By.partialLinkText("Printed Summer Dre")).get(0));
+			
+			productList.add(driver.findElements(By.partialLinkText("Printed Summer Dre")).get(1));
+			
+			productList.add(driver.findElement(By.xpath("//div[@class='right-block']//a[@class='product-name'][contains(text(),'Printed Chiffon Dress')]")));
+			
+    	}
+    	catch(Exception e)
+    	{
+    		System.out.println("Products do not exist");
+    	}
 		
-		blouse=driver.findElement(By.xpath("//div[@class='right-block']//a[@class='product-name'][contains(text(),'Blouse')]"));
-		
-		printedDresses=driver.findElements(By.partialLinkText("Printed Dre"));
-		
-		printedSummerDresses=driver.findElements(By.partialLinkText("Printed Summer Dre"));
-		
-		printedChiffonDress=driver.findElement(By.xpath("//div[@class='right-block']//a[@class='product-name'][contains(text(),'Printed Chiffon Dress')]"));
+    	return productList.get(index);
+    	
     }
     
     
     int quantity=2;
-	final double shipping=2;
+	final double shipping=2.00;
 	double productCost, total;
 	
-	public void selectProductAndQuantity()
+	public void selectProductAndQuantity(int itemNum)
 	{				
 		driver.findElement(By.xpath("//a[@class='sf-with-ul'][contains(text(),'Women')]")).click();
 		
@@ -87,10 +73,8 @@ public class BuyProduct extends Setup
 		jse.executeScript("window.scrollBy(0,1000)");
 		   
 		try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
-		
-		products();
-		
-		actions.moveToElement(printedSummerDresses.get(1)).build().perform();
+			
+		actions.moveToElement(getProduct(--itemNum)).build().perform();
 		
 	    driver.findElement(By.cssSelector(".hovered .quick-view > span")).click();
 	    driver.switchTo().frame(0);
@@ -140,7 +124,6 @@ public class BuyProduct extends Setup
 	    
 	    Assert.assertEquals(totalActualAmountStr, totalCalculatedAmountStr);			//Verify the total cost of product
 	    
-	    
 	    driver.findElement(By.xpath("//a[@class='button btn btn-default standard-checkout button-medium']//span[contains(text(),'Proceed to checkout')]")).click();
 
 	    driver.findElement(By.xpath("//textarea[@name='message']")).sendKeys("Test Message");
@@ -174,7 +157,6 @@ public class BuyProduct extends Setup
 	}
 	
 	public String msg,content, referenceCode;
-	
 	
 	public void placeOrder()
 	{
@@ -225,8 +207,6 @@ public class BuyProduct extends Setup
 	
 	public void verifyOrderDetails()
 	{
-		//referenceCode="WYGJIUHAX";
-		//totalCalculatedAmountStr="$35.02";
 		
 		driver.findElement(By.xpath("//a[@class='account']")).click();
 		
@@ -269,7 +249,7 @@ public class BuyProduct extends Setup
 
 		}
 		
-		System.out.println("Verified");
+		System.out.println("Order Details Verified");
 	}
 	
 	
@@ -277,11 +257,13 @@ public class BuyProduct extends Setup
 	{
 		BuyProduct obj=new BuyProduct();
 		
-		obj.setupLoginData(5);
+		obj.setupLoginData(6);
 		
-		obj.login();
+		obj.startApplication();
 		
-		obj.selectProductAndQuantity();
+		obj.enterLoginDetailsAndSubmit();
+				
+		obj.selectProductAndQuantity(1);
 		
 		obj.checkTransactionDetails();
 		

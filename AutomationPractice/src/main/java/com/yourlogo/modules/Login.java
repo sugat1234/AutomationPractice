@@ -8,20 +8,24 @@ import com.yourlogo.testdata.TestData;
 
 public class Login extends Setup
 {
-	TestData login;
 	HashMap<String, String> loginTestData;
 	
 	public Login()
 	{
-		login=new TestData();
+		super();
+	}
+	
+	public Login(String browserName)
+	{
+		super(browserName);
 	}
 	
 	public void setupLoginData(int colNum)
 	{
-		loginTestData=login.getLoginData(colNum);
+		loginTestData=data.getLoginData(colNum);
 	}
 	
-	public void applicationlogin()
+	public void enterLoginDetailsAndSubmit()
 	{
 		System.out.println("Test Name : "+loginTestData.get("scenarioName"));
 		
@@ -39,14 +43,17 @@ public class Login extends Setup
 	{
 		return loginTestData.get("scenarioName");
 	}
-	
 	public static void main(String[] args) 
 	{
-		Login obj=new Login();
+		Login obj=new Login("firefox");
 		
-		obj.setupLoginData(1);
+		obj.startApplication();
 		
-		obj.applicationlogin();
+		obj.setupLoginData(3);
+		
+		obj.enterLoginDetailsAndSubmit();
+		
+		System.exit(0);
 		
 	}
 
