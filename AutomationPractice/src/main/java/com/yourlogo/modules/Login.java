@@ -1,12 +1,9 @@
 package com.yourlogo.modules;
 
-import java.text.DecimalFormat;
+
 import java.util.HashMap;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
-
-import com.yourlogo._base.Setup;
+import com.yourlogo.base.Setup;
 import com.yourlogo.testdata.TestData;
 
 public class Login extends Setup

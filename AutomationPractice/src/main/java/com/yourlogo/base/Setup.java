@@ -1,4 +1,4 @@
-package com.yourlogo._base;
+package com.yourlogo.base;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,13 +17,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  * @author sugat
  * Setup - this page is setups the webdriver, browser and weburl under test.
  */
+
 public class Setup 
 {
 	public WebDriver driver;
 	
 	final String baseURL="http://automationpractice.com/index.php";
+
+	public Setup() {}
 	
-	public Setup()
+	public Setup(String browser)
 	{
 		WebDriverManager.chromedriver().setup();
 		driver=new ChromeDriver();
@@ -58,8 +61,9 @@ public class Setup
 	{
 		Setup obj=new Setup();
 		
-		obj.takeScreenshot("Setup", "HomePage Check");
+		//obj.takeScreenshot("Setup", "HomePage Check");
 		
+		System.out.println("Done");
 	}
 	
 }

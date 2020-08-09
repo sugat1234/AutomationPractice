@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
-import com.yourlogo._base.Setup;
+import com.yourlogo.base.Setup;
 import com.yourlogo.testdata.TestData;
 
 /**

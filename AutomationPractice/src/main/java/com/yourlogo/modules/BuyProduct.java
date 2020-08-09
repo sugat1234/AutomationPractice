@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-import com.yourlogo._base.Setup;
+import com.yourlogo.base.Setup;
 import com.yourlogo.testdata.TestData;
 
 /**
