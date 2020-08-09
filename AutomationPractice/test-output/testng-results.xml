@@ -2,32 +2,46 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-08-09T17:56:49 IST" name="BuyProduct" finished-at="2020-08-09T17:58:30 IST" duration-ms="100882">
+  <suite started-at="2020-08-10T01:00:43 IST" name="BuyProduct" finished-at="2020-08-10T01:02:20 IST" duration-ms="97550">
     <groups>
     </groups>
-    <test started-at="2020-08-09T17:56:49 IST" name="Test_BuyProduct" finished-at="2020-08-09T17:58:30 IST" duration-ms="100882">
+    <test started-at="2020-08-10T01:00:43 IST" name="Test_BuyProduct" finished-at="2020-08-10T01:02:20 IST" duration-ms="97550">
       <class name="com.yourlogo.test.Test_BuyProduct">
-        <test-method is-config="true" signature="buyProductPreTest()[pri:0, instance:com.yourlogo.test.Test_BuyProduct@22e357dc]" started-at="2020-08-09T17:56:49 IST" name="buyProductPreTest" finished-at="2020-08-09T17:56:55 IST" duration-ms="6467" status="PASS">
+        <test-method is-config="true" signature="buyProductPreTest(java.lang.String)[pri:0, instance:com.yourlogo.test.Test_BuyProduct@50ad3bc1]" started-at="2020-08-10T01:00:43 IST" name="buyProductPreTest" finished-at="2020-08-10T01:00:51 IST" duration-ms="8660" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buyProductPreTest -->
-        <test-method signature="placeOrderUsingBankWire()[pri:1, instance:com.yourlogo.test.Test_BuyProduct@22e357dc]" started-at="2020-08-09T17:56:55 IST" name="placeOrderUsingBankWire" finished-at="2020-08-09T17:57:39 IST" duration-ms="43915" status="PASS">
+        <test-method signature="placeOrderUsingBankWire()[pri:1, instance:com.yourlogo.test.Test_BuyProduct@50ad3bc1]" started-at="2020-08-10T01:00:51 IST" name="placeOrderUsingBankWire" finished-at="2020-08-10T01:01:33 IST" duration-ms="41514" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- placeOrderUsingBankWire -->
-        <test-method is-config="true" signature="buyProductPostTest()[pri:0, instance:com.yourlogo.test.Test_BuyProduct@22e357dc]" started-at="2020-08-09T17:57:39 IST" name="buyProductPostTest" finished-at="2020-08-09T17:57:39 IST" duration-ms="80" status="PASS">
+        <test-method is-config="true" signature="buyProductPostTest()[pri:0, instance:com.yourlogo.test.Test_BuyProduct@50ad3bc1]" started-at="2020-08-10T01:01:33 IST" name="buyProductPostTest" finished-at="2020-08-10T01:01:34 IST" duration-ms="1166" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buyProductPostTest -->
-        <test-method is-config="true" signature="buyProductPreTest()[pri:0, instance:com.yourlogo.test.Test_BuyProduct@22e357dc]" started-at="2020-08-09T17:57:39 IST" name="buyProductPreTest" finished-at="2020-08-09T17:57:43 IST" duration-ms="3428" status="PASS">
+        <test-method is-config="true" signature="buyProductPreTest(java.lang.String)[pri:0, instance:com.yourlogo.test.Test_BuyProduct@50ad3bc1]" started-at="2020-08-10T01:01:34 IST" name="buyProductPreTest" finished-at="2020-08-10T01:01:38 IST" duration-ms="4446" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buyProductPreTest -->
-        <test-method signature="placeOrderUsingCheque()[pri:2, instance:com.yourlogo.test.Test_BuyProduct@22e357dc]" started-at="2020-08-09T17:57:43 IST" name="placeOrderUsingCheque" finished-at="2020-08-09T17:58:30 IST" duration-ms="46882" status="PASS">
+        <test-method signature="placeOrderUsingCheque()[pri:2, instance:com.yourlogo.test.Test_BuyProduct@50ad3bc1]" started-at="2020-08-10T01:01:38 IST" name="placeOrderUsingCheque" finished-at="2020-08-10T01:02:19 IST" duration-ms="40602" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- placeOrderUsingCheque -->
-        <test-method is-config="true" signature="buyProductPostTest()[pri:0, instance:com.yourlogo.test.Test_BuyProduct@22e357dc]" started-at="2020-08-09T17:58:30 IST" name="buyProductPostTest" finished-at="2020-08-09T17:58:30 IST" duration-ms="67" status="PASS">
+        <test-method is-config="true" signature="buyProductPostTest()[pri:0, instance:com.yourlogo.test.Test_BuyProduct@50ad3bc1]" started-at="2020-08-10T01:02:19 IST" name="buyProductPostTest" finished-at="2020-08-10T01:02:20 IST" duration-ms="1114" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buyProductPostTest -->

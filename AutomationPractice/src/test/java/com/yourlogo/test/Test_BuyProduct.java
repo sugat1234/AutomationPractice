@@ -1,61 +1,60 @@
 package com.yourlogo.test;
 
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.*;
 
 import com.yourlogo.modules.BuyProduct;
 
 public class Test_BuyProduct 
 {
+	final int validLoginData=6;
 	BuyProduct buy;
-	String msg;
-	
+		
+	@Parameters({"browser"})
 	@BeforeMethod
-	public void buyProductPreTest()
+	public void buyProductPreTest(@Optional("firefox") String browserName)
 	{
-		buy=new BuyProduct();
+		buy=new BuyProduct(browserName);
 	}
 	
 	@Test(priority=1)
 	public void placeOrderUsingBankWire()
 	{
-		buy.setupLoginData(6);
+		buy.setupLoginData(validLoginData);
 		
 		buy.startApplication();
 		
 		buy.enterLoginDetailsAndSubmit();
 		
-		buy.selectProductAndQuantity(1);
+		buy.selectProductAndQuantity(3);
 		
 		buy.checkTransactionDetails();
 		
 		buy.paymentMethod_BankWire();
 				
-		buy.placeOrder();
+		//buy.placeOrder();
 		
-		buy.verifyOrderDetails();
+		//buy.verifyOrderDetails();
 		
 	}
 	
 	@Test(priority=2)
 	public void placeOrderUsingCheque()
 	{
-		buy.setupLoginData(6);
+		buy.setupLoginData(validLoginData);
 		
 		buy.startApplication();
 		
 		buy.enterLoginDetailsAndSubmit();
 		
-		buy.selectProductAndQuantity(4);
+		buy.selectProductAndQuantity(6);
 		
 		buy.checkTransactionDetails();
 		
 		buy.paymentMethod_Cheque();
 				
-		buy.placeOrder();
+		//buy.placeOrder();
 		
-		buy.verifyOrderDetails();
+		//buy.verifyOrderDetails();
 		
 	}
 	

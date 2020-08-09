@@ -18,13 +18,6 @@ public class Test_Login
 	Login login;
 	String errMsg;
 		
-/*	String browserName;
-	@BeforeTest
-	public void setupBrowserName()
-	{
-		browserName="firefox";
-	}
-*/
 	@Parameters({"browser"})
 	@BeforeMethod
 	public void loginPreTest(@Optional("firefox")String browserName)

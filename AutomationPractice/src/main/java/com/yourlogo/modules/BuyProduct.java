@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 
@@ -20,18 +22,24 @@ import org.testng.Assert;
 
 public class BuyProduct extends Login
 {
-	DecimalFormat form;
-	Actions actions;
+	DecimalFormat form=new DecimalFormat("#00.00");
+
 	
 	public BuyProduct()
 	{
-		form=new DecimalFormat("#00.00");
-		actions=new Actions(driver);
+		super();
+	}
+	
+	public BuyProduct(String browserName)
+	{
+		super(browserName);
 	}
 		    
     ArrayList<WebElement> productList;
     public WebElement getProduct(int index)
     {
+    	logger.info("Finding all products on the screen");
+    	
 		productList=new ArrayList<WebElement>();
     	
     	try
@@ -67,6 +75,8 @@ public class BuyProduct extends Login
 	
 	public void selectProductAndQuantity(int itemNum)
 	{				
+    	logger.info("Login successful. Click on Women tab ");
+    	
 		driver.findElement(By.xpath("//a[@class='sf-with-ul'][contains(text(),'Women')]")).click();
 		
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
@@ -75,17 +85,27 @@ public class BuyProduct extends Login
 		try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
 			
 		actions.moveToElement(getProduct(--itemNum)).build().perform();
+
+    	logger.info("Select a Product by clicking on Quick View ");
 		
 	    driver.findElement(By.cssSelector(".hovered .quick-view > span")).click();
+
+	    try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+	    
 	    driver.switchTo().frame(0);
-	   
+	 	 
 	    String productCostString=driver.findElement(By.xpath("//span[@id='our_price_display']")).getText();    
 	    productCost=convertToNumber(productCostString);
-	   
+
+	    logger.info("Enter Quantity");
+	    
 	    driver.findElement(By.id("quantity_wanted")).clear();
 	    driver.findElement(By.id("quantity_wanted")).sendKeys(Integer.toString(quantity));
 	    
 	    driver.findElement(By.cssSelector(".exclusive > span")).click();
+	    
+	    try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+	    
 	    driver.switchTo().defaultContent();
 	    driver.findElement(By.cssSelector(".button-medium:nth-child(2) > span")).click();
 	}
@@ -114,7 +134,9 @@ public class BuyProduct extends Login
     String totalCalculatedAmountStr, totalActualAmountStr, totalOnPaymentMethodPage;
 	public void checkTransactionDetails()
 	{
-	    total=productCost*quantity+shipping;
+	    logger.info("Verify the total cost of product displayed");
+		
+		total=productCost*quantity+shipping;
 	    
 	    totalCalculatedAmountStr="$"+form.format(total);
 	    
@@ -123,6 +145,7 @@ public class BuyProduct extends Login
 	    System.out.println(totalCalculatedAmountStr+"\t"+totalActualAmountStr);
 	    
 	    Assert.assertEquals(totalActualAmountStr, totalCalculatedAmountStr);			//Verify the total cost of product
+	    
 	    
 	    driver.findElement(By.xpath("//a[@class='button btn btn-default standard-checkout button-medium']//span[contains(text(),'Proceed to checkout')]")).click();
 
@@ -136,24 +159,32 @@ public class BuyProduct extends Login
 	    
 	    totalOnPaymentMethodPage=driver.findElement(By.xpath("//span[@id='total_price']")).getText();
 	    
+	    logger.info("Verify the total cost of product again before payment");
+	    
 	    Assert.assertEquals(totalOnPaymentMethodPage, totalCalculatedAmountStr);
 	    
-	   	System.out.println("Check Txn Details completed");	
 	}
 	
 	boolean bankwireMethod=false, chequeMethod=false;
 	
 	public void paymentMethod_BankWire()
 	{
-	    driver.findElement(By.xpath("//a[@class='bankwire']")).click();
+	    logger.info("Select 'Bankwire' as mode of Payment");
+		
+		driver.findElement(By.xpath("//a[@class='bankwire']")).click();
 	    
 	    bankwireMethod=true;
 	}
 	
 	public void paymentMethod_Cheque()
 	{
-	    driver.findElement(By.xpath("//a[@class='cheque']")).click();	
+
+	    logger.info("Select 'Cheque' as mode of Payment");
+	    
+		driver.findElement(By.xpath("//a[@class='cheque']")).click();	
+	    
 	    chequeMethod=true;
+
 	}
 	
 	public String msg,content, referenceCode;
@@ -168,6 +199,8 @@ public class BuyProduct extends Login
 			
 			Assert.assertEquals(msg, "Your order on My Store is complete.");	
 			
+			logger.info("Product order placed successfully using BankWire method");
+			
 			content=driver.findElement(By.xpath("//div[@class='box']")).getText();		
 			
 			//System.out.println(content);
@@ -178,10 +211,11 @@ public class BuyProduct extends Login
 			
 			referenceCode=strs[5].substring(46, 55);
 			
-			System.out.println(referenceCode);
-			
-			System.out.println(Pattern.compile("([A-Z]){9}").matcher(referenceCode).find());
-			
+			if(Pattern.compile("([A-Z]){9}").matcher(referenceCode).find())
+			{
+				logger.info("Reference code extracted successfully. The code is" +referenceCode);				
+			}
+		
 		}
 		
 		if(chequeMethod)
@@ -189,6 +223,8 @@ public class BuyProduct extends Login
 			msg=driver.findElement(By.xpath("//h3[@class='page-subheading']")).getText();
 			
 			Assert.assertEquals(msg, "YOUR CHECK MUST INCLUDE:");	
+			
+			logger.info("Product order placed successfully using Cheque method");
 			
 			content=driver.findElement(By.xpath("//div[@class='box order-confirmation']")).getText();
 			
@@ -198,19 +234,23 @@ public class BuyProduct extends Login
 			
 			referenceCode=strs2[4].substring(47, 56);
 			
-			System.out.println(referenceCode);
-			
-			System.out.println(Pattern.compile("([A-Z]){9}").matcher(referenceCode).find());	
+			if(Pattern.compile("([A-Z]){9}").matcher(referenceCode).find())
+			{
+				logger.info("Reference code extracted successfully. The code is" +referenceCode);				
+			}	
 		}
 		
 	}
 	
 	public void verifyOrderDetails()
 	{
+		logger.info("Go to User Account page");	
 		
 		driver.findElement(By.xpath("//a[@class='account']")).click();
-		
+
 		try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+
+		logger.info("Click on Order History and Details link");
 		
 		driver.findElement(By.xpath("//span[contains(text(),'Order history and details')]")).click();
 		
@@ -233,6 +273,8 @@ public class BuyProduct extends Login
 	 	*/	
 		
 		//System.out.println(rows.size());
+
+		logger.info("Verify the Order Amount");
 		
 		String orderReference,totalPriceStr;
 		
@@ -249,13 +291,13 @@ public class BuyProduct extends Login
 
 		}
 		
-		System.out.println("Order Details Verified");
+		logger.info("Order details verified");
 	}
 	
 	
 	public static void main(String[] args) 
 	{
-		BuyProduct obj=new BuyProduct();
+		BuyProduct obj=new BuyProduct("firefox");
 		
 		obj.setupLoginData(6);
 		
@@ -263,19 +305,21 @@ public class BuyProduct extends Login
 		
 		obj.enterLoginDetailsAndSubmit();
 				
-		obj.selectProductAndQuantity(1);
+		obj.selectProductAndQuantity(4);
 		
 		obj.checkTransactionDetails();
 		
 		//obj.paymentMethod_BankWire();
 		
-		obj.paymentMethod_Cheque();
+		//obj.paymentMethod_Cheque();
 				
-		obj.placeOrder();
+		//obj.placeOrder();
 		
-		obj.verifyOrderDetails();
+		//obj.verifyOrderDetails();
 		
 		System.out.println("Test Buy Product Complete");
+		
+		System.exit(0);
 	}
 
 }

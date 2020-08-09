@@ -103,6 +103,8 @@ public class TestData
 			System.out.println(v);
 		}
 		
+	
+		System.exit(0);
 		
 	}
 

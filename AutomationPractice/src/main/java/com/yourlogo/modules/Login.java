@@ -4,7 +4,7 @@ package com.yourlogo.modules;
 import java.util.HashMap;
 import org.openqa.selenium.By;
 import com.yourlogo.base.Setup;
-import com.yourlogo.testdata.TestData;
+
 
 public class Login extends Setup
 {
@@ -22,12 +22,17 @@ public class Login extends Setup
 	
 	public void setupLoginData(int colNum)
 	{
+		logger.info("Setting up Test Data for Login module");
+		
 		loginTestData=data.getLoginData(colNum);
+	
 	}
 	
 	public void enterLoginDetailsAndSubmit()
 	{
 		System.out.println("Test Name : "+loginTestData.get("scenarioName"));
+		
+		logger.info("Enter login details and click on SignIn");
 		
 		driver.findElement(By.xpath("//a[@class='login']")).click();
 		
