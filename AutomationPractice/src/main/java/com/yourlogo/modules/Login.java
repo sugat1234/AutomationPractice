@@ -1,4 +1,4 @@
-package com.yourlogo.login;
+package com.yourlogo.modules;
 
 import java.text.DecimalFormat;
 import java.util.HashMap;

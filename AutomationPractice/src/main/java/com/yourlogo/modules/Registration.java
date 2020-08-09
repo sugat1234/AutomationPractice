@@ -1,4 +1,4 @@
-package com.yourlogo.accountcreation;
+package com.yourlogo.modules;
 
 import java.util.HashMap;
 

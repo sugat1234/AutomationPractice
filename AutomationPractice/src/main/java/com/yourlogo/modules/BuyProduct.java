@@ -1,4 +1,4 @@
-package com.yourlogo.buyproduct;
+package com.yourlogo.modules;
 
 import java.text.DecimalFormat;
 import java.util.HashMap;
@@ -24,7 +24,7 @@ import com.yourlogo.testdata.TestData;
 public class BuyProduct extends Setup
 {
 	TestData buyProd;
-	HashMap<String, String> loginTestData;
+	HashMap<String, String> productTestData;
 	DecimalFormat form;
 	Actions actions;
 	
@@ -37,18 +37,18 @@ public class BuyProduct extends Setup
 	
 	public void setupLoginData(int colNum)
 	{
-		loginTestData=buyProd.getLoginData(colNum);
+		productTestData=buyProd.getLoginData(colNum);
 	}
 	
 	public void login()
 	{
-		System.out.println("Test Name : "+loginTestData.get("scenarioName"));
+		System.out.println("Test Name : "+productTestData.get("scenarioName"));
 		
 		driver.findElement(By.xpath("//a[@class='login']")).click();
 		
-		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(loginTestData.get("loginEmailId"));
+		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(productTestData.get("loginEmailId"));
 		
-		driver.findElement(By.xpath("//input[@id='passwd']")).sendKeys(loginTestData.get("loginPassword"));
+		driver.findElement(By.xpath("//input[@id='passwd']")).sendKeys(productTestData.get("loginPassword"));
 		
 		driver.findElement(By.xpath("//p[@class='submit']//span[1]")).click();
 		
@@ -56,7 +56,7 @@ public class BuyProduct extends Setup
 	
 	public String getTestName()
 	{
-		return loginTestData.get("scenarioName");
+		return productTestData.get("scenarioName");
 	}
 	
     WebElement sleeveTshirt, blouse, printedChiffonDress;
