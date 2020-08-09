@@ -65,6 +65,7 @@ public class Setup
 	
 	public void startApplication()
 	{
+		logger.info("==============================================================");
 		logger.info("Application Started");
 		
 		driver.get(baseURL);

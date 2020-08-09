@@ -3,6 +3,7 @@ package com.yourlogo.test;
 import org.testng.annotations.*;
 
 import com.yourlogo.modules.BuyProduct;
+import com.yourlogo.utilities.Utility;
 
 public class Test_BuyProduct 
 {
@@ -25,16 +26,21 @@ public class Test_BuyProduct
 		
 		buy.enterLoginDetailsAndSubmit();
 		
-		buy.selectProductAndQuantity(3);
+		buy.selectProductAndQuantity(2);
+		
+		Utility.takeScreenshot("Buy Product 1", "Select Product");
 		
 		buy.checkTransactionDetails();
 		
 		buy.paymentMethod_BankWire();
 				
-		//buy.placeOrder();
+		buy.placeOrder();
+
+		Utility.takeScreenshot("Buy Product 1", "Order Placed");
 		
-		//buy.verifyOrderDetails();
-		
+		buy.verifyOrderDetails();
+
+		Utility.takeScreenshot("Buy Product 1", "Order Details Verified");
 	}
 	
 	@Test(priority=2)
@@ -46,16 +52,21 @@ public class Test_BuyProduct
 		
 		buy.enterLoginDetailsAndSubmit();
 		
-		buy.selectProductAndQuantity(6);
+		buy.selectProductAndQuantity(5);
+		
+		Utility.takeScreenshot("Buy Product 2", "Select Product");
 		
 		buy.checkTransactionDetails();
 		
 		buy.paymentMethod_Cheque();
 				
-		//buy.placeOrder();
+		buy.placeOrder();
+
+		Utility.takeScreenshot("Buy Product 2", "Order Placed");
 		
-		//buy.verifyOrderDetails();
-		
+		buy.verifyOrderDetails();
+
+		Utility.takeScreenshot("Buy Product 2", "Order Details Verified");
 	}
 	
 	@SuppressWarnings("static-access")
