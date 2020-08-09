@@ -6,7 +6,7 @@ The Automation Practice folder structure is as follows :<br>
 com.yourlogo._base   (This package contains the basic setup)<br>
 --Setup.java<br>
   
-com.yourlogo.accountcreation<br>
+com.yourlogo.modules<br>
 --Registration.java      (This java file contains steps to register a fresh email id)<br>
 --Login.java              (This java file contains steps to login into application)<br>
 --BuyProduct.java         (This java file contains steps to buy a product and verify the order details)<br>
