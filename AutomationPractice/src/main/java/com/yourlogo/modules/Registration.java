@@ -97,7 +97,7 @@ public class Registration extends Setup
 		}
 		
 		
-		if(regTestData.get("firstNameRepeat").isBlank())
+		if(regTestData.get("firstNameRepeat").isEmpty())
 		{
 			driver.findElement(By.xpath("//input[@id='firstname']")).clear();				
 		}
@@ -107,7 +107,7 @@ public class Registration extends Setup
 			driver.findElement(By.xpath("//input[@id='firstname']")).sendKeys(regTestData.get("firstNameRepeat"));				
 		}
 		
-		if(regTestData.get("lastNameRepeat").isBlank())
+		if(regTestData.get("lastNameRepeat").isEmpty())
 		{
 			driver.findElement(By.xpath("//input[@id='lastname']")).clear();				
 		}
