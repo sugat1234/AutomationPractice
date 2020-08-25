@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 import com.yourlogo.testdata.TestData;
 import com.yourlogo.utilities.Utility;
@@ -65,8 +66,10 @@ public class Setup
 	
 	public void startApplication()
 	{
-		logger.info("==============================================================");
-		logger.info("Application Started");
+		//logger.info("==============================================================");
+		//logger.info("Application Started");
+		Reporter.log("[INFO] : "+"Application Started", true);
+		
 		
 		driver.get(baseURL);
 		
@@ -75,7 +78,7 @@ public class Setup
 		driver.manage().timeouts().pageLoadTimeout(80, TimeUnit.SECONDS);
 		
 		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
-		
+				
 	}
 	
 

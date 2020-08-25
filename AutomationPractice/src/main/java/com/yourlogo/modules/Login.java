@@ -3,6 +3,8 @@ package com.yourlogo.modules;
 
 import java.util.HashMap;
 import org.openqa.selenium.By;
+import org.testng.Reporter;
+
 import com.yourlogo.base.Setup;
 
 
@@ -22,17 +24,20 @@ public class Login extends Setup
 	
 	public void setupLoginData(int colNum)
 	{
-		logger.info("Setting up Test Data for Login module");
-		
+		//logger.info("Setting up Test Data for Login module");
+		Reporter.log("[INFO] : "+"Setting up Test Data for Login module", true);
+				
 		loginTestData=data.getLoginData(colNum);
 	
 	}
 	
 	public void enterLoginDetailsAndSubmit()
 	{
-		System.out.println("Test Name : "+loginTestData.get("scenarioName"));
+		//System.out.println("[INFO] : "+"Test Name : "+loginTestData.get("scenarioName"));
 		
-		logger.info("Enter login details and click on SignIn");
+		//logger.info("Enter login details and click on SignIn");
+		
+		Reporter.log("[INFO] : "+"Enter login details and click on SignIn", true);
 		
 		driver.findElement(By.xpath("//a[@class='login']")).click();
 		

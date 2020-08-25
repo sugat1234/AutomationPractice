@@ -8,144 +8,49 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Login</th></tr>
-<tr><td><a href="#t0">Test_Login</a></td><td class="num">0</td><td class="num attn">4</td><td class="num">0</td><td class="num attn">1</td><td class="num">10,652</td><td></td><td></td></tr>
+<tr><th colspan="8">Default suite</th></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">80,397</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Login</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test_Login &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">com.yourlogo.test.Test_Login</td><td><a href="#m0">loginPostTest</a></td><td rowspan="1">1597507854395</td><td rowspan="1">57</td></tr><tr><th colspan="4">Test_Login &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.yourlogo.test.Test_Login</td><td><a href="#m1">emailIdBlank</a></td><td rowspan="1">1597507851473</td><td rowspan="1">2893</td></tr><tr><th colspan="4">Test_Login &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="8">com.yourlogo.test.Test_Login</td><td><a href="#m2">loginPostTest</a></td><td rowspan="4">1597507854547</td><td rowspan="4">-1597507854547</td></tr><tr class="skippedeven"><td><a href="#m3">loginPostTest</a></td></tr><tr class="skippedeven"><td><a href="#m4">loginPostTest</a></td></tr><tr class="skippedeven"><td><a href="#m5">loginPostTest</a></td></tr><tr class="skippedeven"><td><a href="#m6">loginPreTest</a></td><td rowspan="4">1597507854477</td><td rowspan="4">-1597507854477</td></tr><tr class="skippedeven"><td><a href="#m7">loginPreTest</a></td></tr><tr class="skippedeven"><td><a href="#m8">loginPreTest</a></td></tr><tr class="skippedeven"><td><a href="#m9">loginPreTest</a></td></tr><tr><th colspan="4">Test_Login &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="4">com.yourlogo.test.Test_Login</td><td><a href="#m10">invalidEmailId</a></td><td rowspan="1">1597507854478</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m11">invalidPassword</a></td><td rowspan="1">1597507854539</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m12">passwordBlank</a></td><td rowspan="1">1597507854468</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m13">validLogin</a></td><td rowspan="1">1597507854583</td><td rowspan="1">0</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.yourlogo.test.Test_Login</td><td><a href="#m0">validLogin</a></td><td rowspan="1">1598242346209</td><td rowspan="1">10881</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">com.yourlogo.test.Test_Login</td><td><a href="#m1">emailIdBlank</a></td><td rowspan="1">1598242284385</td><td rowspan="1">12069</td></tr><tr class="passedeven"><td><a href="#m2">invalidEmailId</a></td><td rowspan="1">1598242316141</td><td rowspan="1">10687</td></tr><tr class="passedeven"><td><a href="#m3">invalidPassword</a></td><td rowspan="1">1598242331303</td><td rowspan="1">10452</td></tr><tr class="passedeven"><td><a href="#m4">passwordBlank</a></td><td rowspan="1">1598242300901</td><td rowspan="1">10775</td></tr></tbody>
 </table>
-<h2>Test_Login</h2><h3 id="m0">com.yourlogo.test.Test_Login#loginPostTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=84.0.4147.125)
-Build info: version: &apos;4.0.0-alpha-5&apos;, revision: &apos;b3a0d621cc&apos;
-System info: host: &apos;DESKTOP-M1AAM1H&apos;, ip: &apos;192.168.56.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 84.0.4147.125, chrome: {chromedriverVersion: 84.0.4147.30 (48b3e868b4cc0..., userDataDir: C:\Users\sugat\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58533}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: c0a473b1152add2ac313d3e91fa533aa
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:639)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:643)
-	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:303)
-	at com.yourlogo.utilities.Utility.takeScreenshot(Utility.java:22)
-	at com.yourlogo.test.Test_Login.loginPostTest(Test_Login.java:109)
+<h2>Default test</h2><h3 id="m0">com.yourlogo.test.Test_Login#validLogin</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[INFO] : Setting up Test Data for Login module<br/>[INFO] : Application Started<br/>[INFO] : Enter login details and click on SignIn</div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at org.testng.Assert.assertTrue(Assert.java:53)
+	at com.yourlogo.test.Test_Login.validLogin(Test_Login.java:102)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
-... Removed 36 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.yourlogo.test.Test_Login#emailIdBlank</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=84.0.4147.125)
-Build info: version: &apos;4.0.0-alpha-5&apos;, revision: &apos;b3a0d621cc&apos;
-System info: host: &apos;DESKTOP-M1AAM1H&apos;, ip: &apos;192.168.56.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 84.0.4147.125, chrome: {chromedriverVersion: 84.0.4147.30 (48b3e868b4cc0..., userDataDir: C:\Users\sugat\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58533}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: c0a473b1152add2ac313d3e91fa533aa
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:639)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:643)
-	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteWindow.maximize(RemoteWebDriver.java:906)
-	at com.yourlogo.base.Setup.startApplication(Setup.java:73)
-	at com.yourlogo.test.Test_Login.emailIdBlank(Test_Login.java:33)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
-... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.yourlogo.test.Test_Login#loginPostTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">com.yourlogo.test.Test_Login#loginPostTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">com.yourlogo.test.Test_Login#loginPostTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">com.yourlogo.test.Test_Login#loginPostTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m6">com.yourlogo.test.Test_Login#loginPreTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m7">com.yourlogo.test.Test_Login#loginPreTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m8">com.yourlogo.test.Test_Login#loginPreTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m9">com.yourlogo.test.Test_Login#loginPreTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m10">com.yourlogo.test.Test_Login#invalidEmailId</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=84.0.4147.125)
-Build info: version: &apos;4.0.0-alpha-5&apos;, revision: &apos;b3a0d621cc&apos;
-System info: host: &apos;DESKTOP-M1AAM1H&apos;, ip: &apos;192.168.56.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 84.0.4147.125, chrome: {chromedriverVersion: 84.0.4147.30 (48b3e868b4cc0..., userDataDir: C:\Users\sugat\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58533}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: c0a473b1152add2ac313d3e91fa533aa
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:639)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:643)
-	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:303)
-	at com.yourlogo.utilities.Utility.takeScreenshot(Utility.java:22)
-	at com.yourlogo.test.Test_Login.loginPostTest(Test_Login.java:109)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
-... Removed 36 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m11">com.yourlogo.test.Test_Login#invalidPassword</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=84.0.4147.125)
-Build info: version: &apos;4.0.0-alpha-5&apos;, revision: &apos;b3a0d621cc&apos;
-System info: host: &apos;DESKTOP-M1AAM1H&apos;, ip: &apos;192.168.56.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 84.0.4147.125, chrome: {chromedriverVersion: 84.0.4147.30 (48b3e868b4cc0..., userDataDir: C:\Users\sugat\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58533}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: c0a473b1152add2ac313d3e91fa533aa
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:639)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:643)
-	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:303)
-	at com.yourlogo.utilities.Utility.takeScreenshot(Utility.java:22)
-	at com.yourlogo.test.Test_Login.loginPostTest(Test_Login.java:109)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
-... Removed 36 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m12">com.yourlogo.test.Test_Login#passwordBlank</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=84.0.4147.125)
-Build info: version: &apos;4.0.0-alpha-5&apos;, revision: &apos;b3a0d621cc&apos;
-System info: host: &apos;DESKTOP-M1AAM1H&apos;, ip: &apos;192.168.56.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 84.0.4147.125, chrome: {chromedriverVersion: 84.0.4147.30 (48b3e868b4cc0..., userDataDir: C:\Users\sugat\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58533}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: c0a473b1152add2ac313d3e91fa533aa
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:639)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:643)
-	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:303)
-	at com.yourlogo.utilities.Utility.takeScreenshot(Utility.java:22)
-	at com.yourlogo.test.Test_Login.loginPostTest(Test_Login.java:109)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
-... Removed 36 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m13">com.yourlogo.test.Test_Login#validLogin</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=84.0.4147.125)
-Build info: version: &apos;4.0.0-alpha-5&apos;, revision: &apos;b3a0d621cc&apos;
-System info: host: &apos;DESKTOP-M1AAM1H&apos;, ip: &apos;192.168.56.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 84.0.4147.125, chrome: {chromedriverVersion: 84.0.4147.30 (48b3e868b4cc0..., userDataDir: C:\Users\sugat\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58533}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: c0a473b1152add2ac313d3e91fa533aa
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:639)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:643)
-	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:303)
-	at com.yourlogo.utilities.Utility.takeScreenshot(Utility.java:22)
-	at com.yourlogo.test.Test_Login.loginPostTest(Test_Login.java:109)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
-... Removed 36 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.yourlogo.test.Test_Login#emailIdBlank</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[INFO] : Setting up Test Data for Login module<br/>[INFO] : Application Started<br/>[INFO] : Enter login details and click on SignIn</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.yourlogo.test.Test_Login#invalidEmailId</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[INFO] : Setting up Test Data for Login module<br/>[INFO] : Application Started<br/>[INFO] : Enter login details and click on SignIn</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.yourlogo.test.Test_Login#invalidPassword</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[INFO] : Setting up Test Data for Login module<br/>[INFO] : Application Started<br/>[INFO] : Enter login details and click on SignIn</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">com.yourlogo.test.Test_Login#passwordBlank</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[INFO] : Setting up Test Data for Login module<br/>[INFO] : Application Started<br/>[INFO] : Enter login details and click on SignIn</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

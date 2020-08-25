@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.yourlogo.practice.Test1">
+      <class name="com.yourlogo.test.Test_Login">
         <methods>
-          <include name="selectValueInCarousel"/>
+          <include name="loginPreTest"/>
+          <include name="validLogin"/>
+          <include name="loginPostTest"/>
         </methods>
-      </class> <!-- com.yourlogo.practice.Test1 -->
+      </class> <!-- com.yourlogo.test.Test_Login -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

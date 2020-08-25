@@ -18,7 +18,7 @@ public class Test_Registration
 	String errMsg;
 	
 	@Parameters({"browser"})
-	@BeforeMethod
+	@BeforeMethod(groups = "group1")
 	public void registrationPreTest(@Optional("firefox")String browserName)
 	{
 		reg=new Registration(browserName);		
@@ -90,7 +90,7 @@ public class Test_Registration
 	
 	}
 
-	@Test(priority=5)
+	@Test(priority=5,groups = "group1")
 	public void firstNameInvalid()
 	{
 		reg.setUpRegistrationData(5);
@@ -425,7 +425,7 @@ public class Test_Registration
 	
 	}
 	
-	@AfterMethod
+	@AfterMethod(groups = "group1")
 	public void registrationPostTest()
 	{
 		Utility.takeFullPageScreenshot("Registration", reg.getTestName());

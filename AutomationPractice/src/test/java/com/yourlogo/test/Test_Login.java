@@ -2,30 +2,29 @@ package com.yourlogo.test;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import com.yourlogo.modules.Login;
+import com.yourlogo.utilities.AP_TestListener;
 import com.yourlogo.utilities.Utility;
 
+@Listeners(AP_TestListener.class)
 @SuppressWarnings("static-access")
 public class Test_Login 
 {
 	Login login;
 	String errMsg;
-		
+	
+	
 	@Parameters({"browser"})
-	@BeforeMethod
+	@BeforeMethod(groups = {"group1"})
 	public void loginPreTest(@Optional("firefox")String browserName)
 	{
 		login=new Login(browserName);
 	}
 	
-	@Test(priority=1)
+	
+	@Test(priority=1, groups = {"group1"})
 	public void emailIdBlank()
 	{
 		login.setupLoginData(1);
@@ -103,7 +102,7 @@ public class Test_Login
 			Assert.assertTrue(false);
 	}
 	
-	@AfterMethod
+	@AfterMethod(groups = {"group1"})
 	public void loginPostTest()
 	{
 		Utility.takeScreenshot("Login", login.getTestName());
