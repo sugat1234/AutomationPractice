@@ -5,10 +5,9 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 import com.yourlogo.modules.Login;
-import com.yourlogo.utilities.AP_TestListener;
 import com.yourlogo.utilities.Utility;
 
-@Listeners(AP_TestListener.class)
+
 @SuppressWarnings("static-access")
 public class Test_Login 
 {
